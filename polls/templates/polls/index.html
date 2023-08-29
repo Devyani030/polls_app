@@ -1,15 +1,16 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'polls/style.css' %}">
-
+<link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+<h1>POLLS APPLICATION</h1>
+<body>
 {% if latest_question_list %}
-<div>
-    <ul>
+<ul>
     {% for question in latest_question_list %}
     <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
     {% endfor %}
-    </ul>
-</div>
+</ul>
+<a href="{% url 'question' %}">Visit W3Schools.com!</a>
 {% else %}
 <p>No polls are available.</p>
 {% endif %}
+</body>

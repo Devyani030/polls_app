@@ -6,6 +6,9 @@ from django.urls import reverse
 from django.views import generic
 from .models import Choice, Question
 from django.utils import timezone
+from django.shortcuts import render
+
+from .forms import NameForm
 
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
@@ -43,7 +46,39 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+    
+
+
+
+def get_name(request):
+    
+    if request.method == "POST":
+        
+        form = NameForm(request.POST)
+        
+        if form.is_valid():
+           print(form.cleaned_data)
+           q = Question()
+           q.question_text = form.cleaned_data["Your_Question"]
+           q.pub_date = timezone.now()
+           q.save()
+           c1 = Choice(question = q)
+           c1.choice_text = form.cleaned_data["Choice_1"]
+           c1.save()
+           c2 = Choice(question = q)
+           c2.choice_text = form.cleaned_data["Choice_2"]
+           c2.save()
+           c3 = Choice(question = q)
+           c3.choice_text = form.cleaned_data["Choice_3"]
+           c3.save()
+           c4 = Choice(question = q)
+           c4.choice_text = form.cleaned_data["Choice_4"]
+           c4.save()
+           form = NameForm()
+
+    
+    else:
+        form = NameForm()
+
+    return render(request, "polls/question.html", {"form": form})

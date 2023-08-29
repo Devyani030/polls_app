@@ -1,1 +1,0 @@
-# polls_app

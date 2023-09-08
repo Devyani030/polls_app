@@ -1,12 +1,11 @@
-from typing import Any
-from django.db import models
+
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 from .models import Choice, Question
 from django.utils import timezone
-from django.shortcuts import render
+
 
 from .forms import NameForm
 
@@ -76,9 +75,17 @@ def get_name(request):
            c4.choice_text = form.cleaned_data["Choice_4"]
            c4.save()
            form = NameForm()
+           return redirect("polls:index")
 
     
     else:
         form = NameForm()
 
     return render(request, "polls/question.html", {"form": form})
+
+def delete_question(request, pk):
+	queryset = Question.objects.get(id=pk)
+	if request.method == 'POST':
+		queryset.delete()
+		return redirect("polls:index")
+	return render(request, 'polls/delete_question.html')

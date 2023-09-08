@@ -9,7 +9,9 @@ urlpatterns = [
     path ("<int:pk>/", views.DetailView.as_view(), name="detail"),
     path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),
-    path("question/", views.get_name, name="question")
+    path("question/", views.get_name, name="question"),
+    path("<int:pk>/delete/" , views.delete_question, name="delete")
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

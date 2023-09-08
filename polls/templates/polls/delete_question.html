@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="delete_form">
+    <form  method="post">
+        <div class="quest">
+        {% csrf_token %}
+        <div class="heading"><h1>Are you sure you want to delete?</h1><br></div>
+        <input class="btn btn-danger" type="submit" value="Yes" />
+        <a href="{% url 'polls:index' %}"><div class="btn btn-primary">Cancel</div></a>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

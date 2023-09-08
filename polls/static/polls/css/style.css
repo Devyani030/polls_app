@@ -7,8 +7,8 @@
     background-color: indianred;
     height: 50px;
 }
-li a {
-    color: rgb(155, 30, 212);
+td a {
+    color: rgb(79, 14, 109);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 body{
@@ -33,13 +33,29 @@ body{
     margin-right: 20px;
     
 }
-/* .div-design2{
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+table {
+    align-items: center;
+    font-size: 2vw;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif' ;
+    width: 50%;
+    height: 80%;
+    border: 1px solid rgb(95, 14, 187);
+}  
+th , td {
+    border: 1px solid rgb(95, 14, 187);
+    border-collapse: collapse;
+} 
+.delete_form{
     height:100px;
     width:800px;
     border-radius: 30px;
     border-color: rgb(5, 0, 10);
     background-color: rgb(183, 171, 196); 
-} */
+} 
 .button{
     position: relative;
     margin-left: 20px;

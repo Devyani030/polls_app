@@ -10,7 +10,8 @@ urlpatterns = [
     path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),
     path("question/", views.get_name, name="question"),
-    path("<int:pk>/delete/" , views.delete_question, name="delete")
+    path("<int:pk>/delete/" , views.delete_question, name="delete"),
+    # path("update/<int:pk>" , views.update_items, name="update"),
 
 ]
 if settings.DEBUG:

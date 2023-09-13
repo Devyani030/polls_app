@@ -89,3 +89,30 @@ def delete_question(request, pk):
 		queryset.delete()
 		return redirect("polls:index")
 	return render(request, 'polls/delete_question.html')
+
+# def update_items(request,pk):
+#     queryset = Question.objects.get(id=pk)
+#     if request.method =="POST":
+#          form = NameForm(request.POST)
+#          if form.is_valid():
+#             q = Question.objects.get(id=pk)
+#             q.question_text = form.cleaned_data["Your_Question"]
+#             q.pub_date = timezone.now()
+#             q.save()
+#             c1 = Choice.objects.get(question = q)
+#             c1.choice_text = form.cleaned_data["Choice_1"]
+#             c1.save()
+#             c2 = Choice.objects.get(question = q)
+#             c2.choice_text = form.cleaned_data["Choice_2"]
+#             c2.save()
+#             c3 = Choice.objects.get(question = q)
+#             c3.choice_text = form.cleaned_data["Choice_3"]
+#             c3.save()
+#             c4 = Choice.objects.get(question = q)
+#             c4.choice_text = form.cleaned_data["Choice_4"]
+#             c4.save()
+#             form = NameForm()
+#             return redirect("polls:index")
+#     else :
+#              form = NameForm()
+#     return render(request, "polls/question.html", {'form': form})
